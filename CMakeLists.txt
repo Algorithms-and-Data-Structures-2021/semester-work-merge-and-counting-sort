@@ -28,14 +28,15 @@ add_library(project_paths INTERFACE)
 
 target_compile_definitions(project_paths INTERFACE
         PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
-        PROJECT_DATASET_DIR="${CMAKE_SOURCE_DIR}/dataset/data")
+        PROJECT_DATASET_DIR="${CMAKE_SOURCE_DIR}/dataset/data"
+        PROJECT_DATASET_DIR_QUICK_SORT="${CMAKE_SOURCE_DIR}/dataset/data/qsort")
 
 # === Библиотека со структурой данных (target) ===
 # Это самое главное, что вы должны реализовать в рамках семестрового проекта.
 
 add_library(${PROJECT_NAME} STATIC
-        src/data_structure.cpp
-        include/data_structure.hpp)
+        src/qsort.cpp
+        include/qsort.hpp)
 
 # включить предупреждения компилятора для библиотеки (линковка)
 target_link_libraries(${PROJECT_NAME} PRIVATE project_warnings)
